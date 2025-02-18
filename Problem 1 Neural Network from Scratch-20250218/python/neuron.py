@@ -21,7 +21,12 @@ def evaluate_neuron(x, w, b):
     assert w.shape == (2,)
     assert b.shape == (1,) or b.shape == ()
 
-    # TODO: add your code here
+    a = np.zeros_like(x)
+    j = 0
+    for i in x:
+        a[j] = w*i + b
+        j += 1
+    y = 1 / (1 + np.exp(a))
 
     return y, a
 
